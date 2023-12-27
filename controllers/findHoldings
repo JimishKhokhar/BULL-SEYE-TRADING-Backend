@@ -1,0 +1,31 @@
+const UserModel = require('../models/user');
+const holdingModel = require('../models/Holding');
+const { response } = require('express');
+
+const findHoldings = async (req, res) => {
+    try {
+        const id = req.body?.user_id;
+        const response = await holdingModel.find({user_id:id}).sort({ broughtAt: -1 });
+        
+        // const finalResponse={};
+        // response.forEach((res)=>{
+        //     finalResponse[res.stock].push(res);    
+        // })
+
+        res.status(200).json({
+            success: true,
+            data: response,
+            message: "Sent All Holdings"
+        })
+    }
+    catch (e) {
+        console.log(e)
+        res.status(500).json({
+            success: false,
+            data: "Internal Server Error",
+            message: e.message
+        })
+    }
+}
+
+module.exports = findHoldings;
