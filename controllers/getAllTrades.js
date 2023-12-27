@@ -1,4 +1,4 @@
-const UserModel = require('../models/user');
+const UserModel = require('../models/User');
 const Trades=require('../models/Trades');
 
 const getAllTradesFunc= async (req,res)=>{

@@ -1,4 +1,4 @@
-const UserModel = require('../models/user');
+const UserModel = require('../models/User');
 const holdingModel = require('../models/Holding');
 const { response } = require('express');
 

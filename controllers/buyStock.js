@@ -1,5 +1,5 @@
 const holdingModel=require('../models/Holding');
-const UserModel=require('../models/user');
+const UserModel=require('../models/User');
 const Trades=require('../models/Trades');
 
 const buyStock=async (req,res) =>{

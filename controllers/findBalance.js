@@ -1,4 +1,4 @@
-const UserModel=require('../models/user');
+const UserModel=require('../models/User');
 
 //returns whole user Object 
 const findTheBalance=async (req,res)=>{
