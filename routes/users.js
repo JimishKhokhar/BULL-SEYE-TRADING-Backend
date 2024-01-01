@@ -48,6 +48,10 @@ const getTotalUsers=require("../controllers/getTotalUsers");
 router.get('/getTotalUsers',getTotalUsers);
 
 
+const applyCronJob=require("../controllers/cronjob");
+router.get('/cronjob',applyCronJob);
+
+
 
 
 module.exports=router;
