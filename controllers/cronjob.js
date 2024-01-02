@@ -16,7 +16,7 @@ const cronjob = async (req, res) => {
         if (isMarketLive != 1) {
             res.status(200).json({
                 success: false,
-                data: "MARKET IS NOT LIVE",
+                data: isMarketLive,
                 message: "MARKET IS NOT LIVE"
             })
             return;
