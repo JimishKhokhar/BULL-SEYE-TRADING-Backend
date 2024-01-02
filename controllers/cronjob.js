@@ -33,7 +33,7 @@ const cronjob = async (req, res) => {
             const pureData = await response.json();
             livePrices[stock]=Number(pureData?.c);
 
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            await new Promise(resolve => setTimeout(resolve, 1000));
 
         }
         
