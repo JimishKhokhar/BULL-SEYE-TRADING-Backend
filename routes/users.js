@@ -1,6 +1,7 @@
 const express=require('express');
 const router=express.Router();
 
+
 //Add all Routes
 
 //import Controller
@@ -50,6 +51,7 @@ router.get('/getTotalUsers',getTotalUsers);
 
 const applyCronJob=require("../controllers/cronjob");
 router.get('/cronjob',applyCronJob);
+
 
 
 

@@ -12,7 +12,8 @@ const tradesSchema = new mongoose.Schema({
         quantity: { type: Number, required: true },
         price: { type:Number, required:true },
         tradeTime: { type: Date, default: Date.now },
-        tradeType: { type:String , required:true}                
+        tradeType: { type:String , required:true},
+        tradeReturn:{ type:Number }                
     }]
 });
 

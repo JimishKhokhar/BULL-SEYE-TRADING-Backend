@@ -19,6 +19,12 @@ const HoldingSchema = mongoose.Schema(
             type: mongoose.Types.Decimal128,
             required: true
         },
+        holdingType:{
+            type:String,
+            required:true,
+            default:"B"
+            
+        },
         trades: [
             {
                 quantity: { type: Number, required: true },
