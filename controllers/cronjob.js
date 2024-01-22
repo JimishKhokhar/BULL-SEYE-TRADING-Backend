@@ -23,22 +23,21 @@ const cronjob = async (req, res) => {
         }
 
         let livePrices = {};
-        for(stock of uniqueStocks)
-        {
+        for (stock of uniqueStocks) {
             const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${stock}&token=${process.env.FINNHUB_API_KEY}`);
             if (!response.ok) {
-                livePrices[stock]=-1;
+                livePrices[stock] = -1;
                 continue;
             }
             const pureData = await response.json();
-            livePrices[stock]=Number(pureData?.c);
+            livePrices[stock] = Number(pureData?.c);
 
             await new Promise(resolve => setTimeout(resolve, 1000));
 
         }
-        
 
-  
+
+
 
         //we got the live prices of all the stocks
         const users = await UserModel.find({});
@@ -58,24 +57,32 @@ const cronjob = async (req, res) => {
 
                 if (holdingStock in livePrices) {
                     let newprice = Number(livePrices[holdingStock]);
-                    worth += Number(holdingQuantity * newprice);
+
+                    if (holding.holdingType == "B") {
+                        // console.log(livePrice)
+                        worth += Number(holdingQuantity * newprice);
+                    }
+                    else {
+                        worth += Number(2 * (totalPrice) - (newprice * holdingQuantity));
+                    }
+
                 }
                 else {
                     worth += Number(totalPrice);
                 }
             }
             worth += Number(currentBalance);
-            let netWorth=Number(worth);
+            let netWorth = Number(worth);
 
 
-            let newUser=await UserModel.findByIdAndUpdate(user._id, { $set: { netWorth } }, { new: true });
-            
+            let newUser = await UserModel.findByIdAndUpdate(user._id, { $set: { netWorth } }, { new: true });
+
         }
 
 
 
 
-        res.status(200).json({ message:"Net-Worth Updated successfully" });
+        res.status(200).json({ message: "Net-Worth Updated successfully" });
         return;
 
     }
