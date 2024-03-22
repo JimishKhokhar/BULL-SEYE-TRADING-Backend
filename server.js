@@ -15,6 +15,10 @@ app.use (cors());
 const dbConnect=require('./config/database');
 dbConnect();
 
+app.get('/',(req,res)=>{
+    res.send("Connected To Backend of BullsEyeTrading!")    
+})
+
 app.listen(PORT,()=>{
     console.log("Server Started! at "+PORT);
 })
