@@ -13,7 +13,7 @@ const cors = require ('cors');
 app.use (cors());
 
 const dbConnect=require('./config/database');
-// dbConnect();
+dbConnect();
 
 app.get('/',(req,res)=>{
     res.send("Connected To Backend of BullsEyeTrading!")    
