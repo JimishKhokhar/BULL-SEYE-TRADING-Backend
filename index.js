@@ -27,7 +27,7 @@ app.listen(PORT,()=>{
 
 
 // Allow only specific origins
-const allowedOrigins = ['https://localhost:3000'];
+const allowedOrigins = ['https://localhost:3000','https://frontend-bulls-eye-trading.onrender.com'];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
