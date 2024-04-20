@@ -52,6 +52,8 @@ router.get('/getTotalUsers',getTotalUsers);
 const applyCronJob=require("../controllers/cronjob");
 router.get('/cronjob',applyCronJob);
 
+const getStockQuoteController=require("../controllers/getStockQuote");
+router.post('/getStockQuote',getStockQuoteController)
 
 
 
