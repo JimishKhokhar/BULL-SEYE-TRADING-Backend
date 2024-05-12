@@ -55,7 +55,16 @@ router.get('/cronjob',applyCronJob);
 const getStockQuoteController=require("../controllers/getStockQuote");
 router.post('/getStockQuote',getStockQuoteController)
 
+const getPeersController=require("../controllers/getPeers");
+router.post('/getPeers',getPeersController);
 
+const getMetric=require("../controllers/getMetric");
+router.post('/getMetric',getMetric);
 
+const getStockProfileController=require('../controllers/getStockProfile');
+router.post('/getStockProfile',getStockProfileController);
+
+const getMarketStatusController=require('../controllers/getMarketStatus');
+router.get('/getMarketStatus',getMarketStatusController);
 
 module.exports=router;
