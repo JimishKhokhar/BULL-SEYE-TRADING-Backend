@@ -2,9 +2,11 @@ const getMarketStatus=async(req,res)=>{
     try{
         const response = await fetch(`https://finnhub.io/api/v1/stock/market-status?exchange=US&token=${process.env.FINNHUB_API_KEY}`)
         
+        
         let marketStatus=-1
         if (response.status == 200) {
             const pureData = await response.json();
+            console.log(pureData)
             if (pureData.isOpen)
                marketStatus=1;
             else marketStatus=0;

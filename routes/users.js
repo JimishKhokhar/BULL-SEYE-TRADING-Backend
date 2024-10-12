@@ -67,4 +67,7 @@ router.post('/getStockProfile',getStockProfileController);
 const getMarketStatusController=require('../controllers/getMarketStatus');
 router.get('/getMarketStatus',getMarketStatusController);
 
+const getTopStocksController=require('../controllers/getTopStocks');
+router.post('/getAllStockQuotes',getTopStocksController)
+
 module.exports=router;
